@@ -3,7 +3,7 @@ class HimarleyTflocal < Formula
   desc "Installs TFLocal"
   homepage "https://himarley.com"
   url "https://github.com/localstack/terraform-local/archive/29ac0aab6db7ca54d5f7c78114b0e7fe9679e454.tar.gz"
-  version "0.0.1"
+  sha256 "9837e127e5405dfa838c6a1bc164bd6f56c721e98e4a26d1a9c98de61acc1e9a"
   license "private"
   depends_on "python@3.9"
 
