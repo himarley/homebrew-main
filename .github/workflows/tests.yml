@@ -44,4 +44,4 @@ jobs:
         with:
           name: bottles
           path: '*.bottle.*'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
