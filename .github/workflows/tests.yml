@@ -29,13 +29,13 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
-      - run: brew test-bot --only-cleanup-before --tap
+      - run: brew test-bot --only-cleanup-before --tap=$GITHUB_REPOSITORY
 
-      - run: brew test-bot --only-setup --tap
+      - run: brew test-bot --only-setup --tap=$GITHUB_REPOSITORY
 
-      - run: brew test-bot --only-tap-syntax --tap
+      - run: brew test-bot --only-tap-syntax --tap=$GITHUB_REPOSITORY
 
-      - run: brew test-bot --only-formulae --tap
+      - run: brew test-bot --only-formulae --tap=$GITHUB_REPOSITORY
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
