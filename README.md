@@ -2,9 +2,9 @@
 
 ## How do I install these formulae?
 
-`brew install himarley/brew/<formula>`
+`brew install himarley/main/<formula>`
 
-Or `brew tap himarley/brew` and then `brew install <formula>`.
+Or `brew tap himarley/main` and then `brew install <formula>`.
 
 ## Documentation
 
