@@ -8,12 +8,14 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+        with:
+          token: ${{ github.token }}
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
@@ -26,14 +28,7 @@ jobs:
       - name: Install Homebrew Bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
-
-      - run: brew test-bot --only-cleanup-before
-
-      - run: brew test-bot --only-setup
-
-      - run: brew test-bot --only-tap-syntax
-
-      - run: brew test-bot --only-formulae
+      - run: brew style .
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
@@ -42,3 +37,4 @@ jobs:
         with:
           name: bottles
           path: '*.bottle.*'
+          token: ${{ github.token }}
